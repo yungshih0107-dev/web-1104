@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .block {
+            height: 300px;
+            width: 300px;
+            background-color: rgb(141, 235, 179);
+        }
+
+        .bg-purple {
+            background-color: rgb(234, 82, 214);
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="block"></div>
+    <button type="button" id="hideBtn">按我 hide</button>
+    <button type="button" id="slideBtn">按我 slide Block</button>
+    <button type="button" id="classToggle">按我 切換 class</button>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+
+        // 第一個按鈕 監聽事件 //
+        $(document).ready(function() {
+            $("#hideBtn").click(function() {
+                /* $(".block").hide(); */
+                $(".block").toggle();
+            });
+        });
+
+         // 第二個按鈕 監聽事件 //
+        $('#slideBtn').on('click', function () {
+                    $('.block').slideToggle();
+                });
+
+        // 第三個按鈕 監聽事件 //
+        $('#classToggle').on('click', function () {
+                    $('.block').toggleClass('bg-purple');
+                });
+
+
+    </script>
+
+</body>
+</html>
