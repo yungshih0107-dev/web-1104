@@ -15,7 +15,7 @@ header{
 	padding-top: 10px;   /* 內距-上方，上方內部距離為10px*/
 }
 main{
-	background:#ffd2f0; /* 背景色*/
+	background:#ffd2f06a; /* 背景色*/
 	padding: 30px;      /* 內距，內部距離設為30px*/
 	font-size: 16px;    /* 內文的字體大小設為16px*/
 	line-height: 2em;   /* 行間設為2個字高*/
@@ -121,7 +121,7 @@ a:hover{
         }
 
         body{
-        background:url("./images/練-2.png");  /*背景圖片*/
+        background:url("./images/7.png");  /*背景圖片*/
         background-attachment: fixed; /*固定背景圖片*/
         }
 
