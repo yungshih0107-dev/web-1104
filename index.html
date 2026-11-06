@@ -14,9 +14,9 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
 
-    <!-- 調整：圖片7專屬動畫、加寬、頁籤限制寬度、YT影片樣式 -->
+    <!-- 額外的css -->
     <style>
-        /* 1. 圖片 7 動畫效果 (淡入放大 + 滑鼠互動) */
+        /* 圖片動畫 */
         @keyframes imagePopIn {
             0% {
                 opacity: 0;
@@ -48,13 +48,13 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        /* 圖片 7 滑鼠懸停 (Hover) 微浮動動畫 */
+        /* 圖片滑鼠懸停 (Hover) 微浮動動畫 */
         .main-img-wrapper img:hover {
             transform: translateY(-6px) scale(1.02);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
         }
 
-        /* 2. jQuery UI 頁籤 (Tabs) 不再滿版 */
+        /* jQuery UI 頁籤 (Tabs) */
         #tabs {
             border: none !important;
             background: transparent !important;
@@ -115,7 +115,7 @@
             margin-top: 15px;
         }
 
-        /* 3. 橫式 YouTube 播放器容器 (16:9 比例) */
+        /* 橫式 YouTube 播放器容器 (16:9 比例) */
         .video-container {
             position: relative;
             width: 100%;
@@ -167,7 +167,7 @@
     </nav>  
 </header>
 
-<!-- 圖片 7：加入淡入彈出動畫與懸停互動 -->
+<!-- 圖片加入淡入彈出動畫與懸停互動 -->
 <div class="main-img-wrapper">
     <img src="images/7.png" 
          class="card-img" 
@@ -218,7 +218,7 @@
     孟寶總是心暖暖 因為崴崴寶<br>
     <p></p>
     
-    <!-- 美化後的 jQuery UI 頁籤（限制寬度不滿版） -->
+    <!-- jQuery UI 頁籤 -->
     <div id="tabs">
     <ul>
         <li><a href="#tabs-1">崴崴</a></li>
