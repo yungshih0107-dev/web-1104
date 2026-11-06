@@ -7,6 +7,151 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="痛歌詞">
 	<link href="style.css" rel="stylesheet">
+
+     <!--jQuery 語法-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+
+    <!-- 額外的css -->
+    <style>
+        /* 圖片動畫 */
+        @keyframes imagePopIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .main-img-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            width: 100%;
+        }
+
+        .main-img-wrapper img {
+            width: 70%;          /* 圖片寬度 70% */
+            max-width: 550px;    /* 最大寬度 550px */
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            
+            /* 載入動畫：持續 1.2 秒柔和彈出 */
+            animation: imagePopIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* 圖片滑鼠懸停 (Hover) 微浮動動畫 */
+        .main-img-wrapper img:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+        }
+
+        /* jQuery UI 頁籤 (Tabs) */
+        #tabs {
+            border: none !important;
+            background: transparent !important;
+            margin: 30px auto !important;
+            max-width: 650px;
+            width: 90%;
+            font-family: inherit;
+        }
+
+        #tabs .ui-tabs-nav {
+            background: transparent !important;
+            border: none !important;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0;
+            margin-bottom: -1px;
+        }
+
+        #tabs .ui-tabs-nav li {
+            border: 1px solid #e0e0e0 !important;
+            background: #ffffff !important;
+            border-radius: 20px !important;
+            transition: all 0.3s ease;
+            margin: 0 !important;
+        }
+
+        #tabs .ui-tabs-nav li a {
+            color: #555555 !important;
+            font-weight: bold;
+            padding: 8px 20px !important;
+            outline: none;
+        }
+
+        #tabs .ui-tabs-nav li:hover {
+            background: #f5f5f5 !important;
+            transform: translateY(-2px);
+        }
+
+        #tabs .ui-tabs-nav li.ui-tabs-active {
+            background: #ff7b9c !important;
+            border-color: #ff7b9c !important;
+            box-shadow: 0 4px 10px rgba(255, 123, 156, 0.3);
+        }
+
+        #tabs .ui-tabs-nav li.ui-tabs-active a {
+            color: #ffffff !important;
+        }
+
+        #tabs .ui-tabs-panel {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid #eeeeee !important;
+            border-radius: 16px !important;
+            padding: 24px !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            line-height: 1.8;
+            color: #444444;
+            margin-top: 15px;
+        }
+
+        /* 橫式 YouTube 播放器容器 (16:9 比例) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            margin: 20px auto;
+            padding-bottom: 31.5%;
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .video-container {
+                padding-bottom: 56.25%;
+            }
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+
+    <script>
+    $(function() {
+        $( "main" ).hide();
+        $( "main" ).fadeIn(2000);
+        $( "#tabs" ).tabs();
+    });
+    </script>
+
 </head>
 
 <body>
@@ -21,7 +166,13 @@
           </ul>
 	</nav>  
 </header>
-	  
+
+<div class="main-img-wrapper">
+    <img src="images/8.png" 
+         class="card-img" 
+         >
+</div>
+
 	<!--歌詞開始-->
 <main>
 	低頭，絆倒什麼<br>
@@ -82,11 +233,67 @@
     快點<br>
 	<p></p>
 	
-	<!--超連結-->
-	<h2><a href="https://youtu.be/8i1HqVArTp0?si=0Mey5_wDAAFmWHw_" target="_blank">痛痛聽歌去</a></h2>
-	<p></p>
-	<h2><a href="https://www.youtube.com/@2hollis" target="_blank">二霍利斯大總部</a></h2>
-	<p></p>
+    <!-- jQuery UI 頁籤 -->
+    <div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">通通</a></li>
+        <li><a href="#tabs-2">痛痛</a></li>
+        <li><a href="#tabs-3">薩壺兒</a></li>
+    </ul>
+
+    <div id="tabs-1">
+        
+        對，你說得對，<br>
+        但是梵蒂岡的常住人口有800人，同時，<br>
+        僅澳大利亞就有4700萬隻袋鼠。<br>
+        如果袋鼠決定入侵梵蒂岡，<br>
+        那麼每一個梵蒂岡人要打58750只袋鼠，<br>
+        你不知道，你不在乎，你只關心你自己。<br>
+        
+    </div>
+
+    <div id="tabs-2">
+        
+        大家好，最近手頭有點緊，開始接點委託<br>
+        1. 頭像繪 300<br>
+        2. 半身繪 450<br>
+        3. 立繪 600<br>
+        4. 氛圍感繪 750<br>
+        5. 精緻繪 1000<br>
+        6. 麥當勞幫吃 0<br>
+        目前只接6喔<br>
+        因為我不會畫畫<br>
+        
+    </div>
+
+    <div id="tabs-3">
+
+        【道歉啟示】<br>
+        <p>
+        我，在此向期中道歉<br>
+        本人在期中前，用輕佻的態度看待期中<br>
+        態度挑釁，行為囂張，看期中沒有<br>
+        也對各個小組報告與個人作品極其不尊重<br>
+        對此我本人感到無比後悔<br>
+        在此鄭重跟所有期中作業道歉，希望國立高雄師範大學各位教授大人不記小人過，不要把我當掉<br>
+        <p>
+        我承諾將從這次錯誤中學習，之後面對期末會以更加謹慎和負責任的方式學習<br>
+        
+    </div>
+    </div>
+
+    <!-- YouTube 橫式播放器與原超連結 -->
+    <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/8i1HqVArTp0" 
+            title="二霍利斯影片" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+    </div>
+
+    <h2><a href="https://youtu.be/8i1HqVArTp0?si=0Mey5_wDAAFmWHw_" target="_blank">痛痛聽歌去</a></h2>
+    <p></p>
+    <h2><a href="https://www.youtube.com/@2hollis" target="_blank">二霍利斯大總部</a></h2>
+    <p></p>
 	
 	<!--卡片開始-->
 	 <section id="protagonists">
