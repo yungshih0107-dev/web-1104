@@ -14,9 +14,20 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
 
-    <!-- 調整：圖片7加寬、頁籤限制寬度、YT影片響應式樣式 -->
+    <!-- 調整：圖片7專屬動畫、加寬、頁籤限制寬度、YT影片樣式 -->
     <style>
-        /* 1. 主圖片 (images/7.png) 置中與加寬 */
+        /* 1. 圖片 7 動畫效果 (淡入放大 + 滑鼠互動) */
+        @keyframes imagePopIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.85) translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
         .main-img-wrapper {
             display: flex;
             justify-content: center;
@@ -26,20 +37,30 @@
         }
 
         .main-img-wrapper img {
-            width: 70%;          /* 圖片寬度加大至 70% */
-            max-width: 550px;    /* 最大寬度提升至 550px */
+            width: 70%;          /* 圖片寬度 70% */
+            max-width: 550px;    /* 最大寬度 550px */
             height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            
+            /* 載入動畫：持續 1.2 秒柔和彈出 */
+            animation: imagePopIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* 圖片 7 滑鼠懸停 (Hover) 微浮動動畫 */
+        .main-img-wrapper img:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
         }
 
         /* 2. jQuery UI 頁籤 (Tabs) 不再滿版 */
         #tabs {
             border: none !important;
             background: transparent !important;
-            margin: 30px auto !important; /* 自動邊距水平置中 */
-            max-width: 650px;             /* 限制最大寬度，避免滿版 */
-            width: 90%;                   /* 手機版留白 */
+            margin: 30px auto !important;
+            max-width: 650px;
+            width: 90%;
             font-family: inherit;
         }
 
@@ -98,9 +119,9 @@
         .video-container {
             position: relative;
             width: 100%;
-            max-width: 560px; /* 橫式影片適當寬度 */
+            max-width: 560px;
             margin: 20px auto;
-            padding-bottom: 31.5%; /* 16:9 響應式比例 (若滿版為 56.25%，適當設定極限寬度) */
+            padding-bottom: 31.5%;
             height: 0;
             border-radius: 12px;
             overflow: hidden;
@@ -109,7 +130,7 @@
 
         @media (max-width: 600px) {
             .video-container {
-                padding-bottom: 56.25%; /* 手機版全寬 16:9 比例 */
+                padding-bottom: 56.25%;
             }
         }
 
@@ -146,7 +167,7 @@
     </nav>  
 </header>
 
-<!-- 圖片 7：置中且加寬 -->
+<!-- 圖片 7：加入淡入彈出動畫與懸停互動 -->
 <div class="main-img-wrapper">
     <img src="images/7.png" 
          class="card-img" 
